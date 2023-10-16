@@ -1,6 +1,6 @@
 function romanNumeralsDecoder(roman){
 
-    const romanNumeralsMap = new Map([
+    const ROMAN_NUMERALS_MAP = new Map([
         ['I',1],
         ['V',5],
         ['X',10],
@@ -11,26 +11,24 @@ function romanNumeralsDecoder(roman){
     ])
 
     let matchedNumerals =  [...roman].map((romanSingleCharacter) => {
-        return romanNumeralsMap.get(romanSingleCharacter)
+        return ROMAN_NUMERALS_MAP.get(romanSingleCharacter)
     })
 
     /*
         After converting the roman to numeral. 
         sum up the numerals using reducer function
     */
-    let combinedNumerals = matchedNumerals.reduce((accumulator, current, index, array) => {
+    return matchedNumerals.reduce((accumulator, current, index, array) => {
         if(index < array.length -1 && current < array[index + 1]  ){
             return accumulator + current
         } 
         return current - accumulator
-    }, 0)
-
-    return combinedNumerals
+    }, 0);
 }
 
 
 function romanNumeralsEconder(number){
-    const romanNumerals = [
+    const ROMAN_NUMERALS = [
         { value: 1000, numeral: 'M' },
         { value: 900, numeral: 'CM' },
         { value: 500, numeral: 'D' },
@@ -48,7 +46,7 @@ function romanNumeralsEconder(number){
     
     let combinedRomans = '';
 
-    for (const { value, numeral } of romanNumerals) {
+    for (const { value, numeral } of ROMAN_NUMERALS) {
         while (number >= value) {
             combinedRomans += numeral;
             number -= value;
