@@ -17,7 +17,7 @@ function roundRobin(jobs, slice, index) {
     } else if (index > 0) {
       index--; // if we're interested in a job other than the first one, decrement the index
     } else {
-      return `the number of ${cc} till the job at ${index} is finished`
+      return `the number of ${cc} till the job at ${index} is finished`;
     }
   }
 }
