@@ -1,28 +1,29 @@
-const romanNumeralsMap = new Map([
-  ["I", 1],
-  ["V", 5],
-  ["X", 10],
-  ["L", 50],
-  ["C", 100],
-  ["D", 500],
-  ["M", 1000],
-]);
+
+const romanNumeralsMap = {
+  I: 1,
+  V: 5,
+  X: 10,
+  L: 50,
+  C: 100,
+  D: 500,
+  M: 1000,
+};
 
 function romanNumeralsDecoder(roman) {
   /*
         After converting the roman to numeral. 
         sum up the numerals using reducer function
-    */
-  return [...roman]
-    .map((romanSingleCharacter) => romanNumeralsMap.get(romanSingleCharacter))
-    .reduce(
-      (accumulator, current, index, array) =>
-        index < array.length - 1 && current < array[index + 1]
-          ? accumulator + current
-          : current - accumulator,
-      0
-    );
+        */
+   console.log('roman ' +
+  [...roman].reduce((accumulator, current, index, array) => {
+    romanNumeralsMap[current] < romanNumeralsMap[array[index + 1]]
+      ?  accumulator - romanNumeralsMap[current]
+      : accumulator + romanNumeralsMap[current]
+  }
+  ))
 }
+
+console.log(romanNumeralsDecoder('M'));
 
 const romanNumerals = [
   { value: 1000, numeral: "M" },
@@ -40,7 +41,7 @@ const romanNumerals = [
   { value: 1, numeral: "I" },
 ];
 
-const romanNumeralsEncoder = (number) => {
+function romanNumeralsEncoder(number) {
   let combinedRomans = "";
   romanNumerals.forEach(({ value, numeral }) => {
     while (number >= value) {
