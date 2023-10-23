@@ -1,7 +1,7 @@
 const calculateFactorial = (n) => {
-  return Array.from({ length: n - 1 }, (_, i) => i + 2)
+  return Array.from({ length: n - 1 }, (_, index) => index + 2)
     .reduce(
-      (prod, currentNumber) => prod * currentNumber
+      (production, currentNumber) => production * currentNumber
     , 1);
 }
 
