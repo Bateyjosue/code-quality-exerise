@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-plugin-unicorn": "^48.0.1"
+  }
+}
