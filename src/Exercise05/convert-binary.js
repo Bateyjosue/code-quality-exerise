@@ -1,1 +1,1 @@
-const convertBinary = (number) => number.toString(2)
+const convertBinary = number => number.toString(2)

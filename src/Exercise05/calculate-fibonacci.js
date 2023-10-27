@@ -7,3 +7,5 @@ const calculateFibonacci = (number) => {
     fibonacciSeries.push(fibonacciSeries.at(-1) + fibonacciSeries.at(-2));
     return fibonacciSeries;
 }
+
+console.log(calculateFibonacci(100));
