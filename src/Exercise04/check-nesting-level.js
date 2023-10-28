@@ -3,7 +3,9 @@
 const checkNestingLevel = (arrays) => {
   return arrays.reduce(
     (accumulator, current) =>
-      accumulator + (Array.isArray(current) ? checkNestingLevel(current) : 0),
+      accumulator + (Array.isArray(current)
+        ? checkNestingLevel(current)
+        : 0),
     1
   );
 };
