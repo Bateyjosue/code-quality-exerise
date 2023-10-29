@@ -43,12 +43,12 @@ const romanNumerals = [
 
 function romanNumeralsEncoder(number) {
   let combinedRomans = "";
-  romanNumerals.forEach(({ value, numeral }) => {
+  for (const { value, numeral } of romanNumerals) {
     while (number >= value) {
       combinedRomans += numeral;
       number -= value;
     }
-  });
+  }
 
   return combinedRomans;
 };
